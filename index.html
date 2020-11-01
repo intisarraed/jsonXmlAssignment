@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo"></p> 
+    <script>
+        let i , x ="";
+
+var txt =
+
+`{
+
+    "inbox": [
+
+        {
+
+            "message": {
+
+            "from": "ahmad@example.com",
+
+            "to": "fadi@example.com",
+
+            "subject": "Hello World!",
+
+            "body": "How are you?"
+
+        }
+
+        },
+
+        {
+
+            "message": {
+
+            "from": "ahmad@example.com",
+
+            "to": "fadi@example.com",
+
+            "subject": "Hello World!",
+
+            "body": "How are you?"
+
+        }
+
+        }
+
+    ]
+
+}`
+
+var mydata = JSON.parse(txt);
+
+console.log(mydata.inbox[0]);
+
+x += "<table border='1'>";
+x+= "<th>from</th>";
+
+mydata.inbox.forEach(element => {
+    x+="<tr><td>"+ element.message.from +"</tr></td>";
+});
+x+= "<th>to</th>";
+mydata.inbox.forEach(element => {
+    x+="<tr><td>"+ element.message.to +"</tr></td>";
+});
+x+= "<th>body</th>";
+mydata.inbox.forEach(element => {
+    x+="<tr><td>"+ element.message.body +"</tr></td>";
+});
+x+= "<th>subject</th>";
+mydata.inbox.forEach(element => {
+    x+="<tr><td>"+ element.message.subject +"</tr></td>";
+});
+x+="</table>";
+
+document.getElementById("demo").innerHTML = x;
+    </script>
+</body>
+</head>

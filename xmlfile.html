@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <script>
+        var  parser, xmlDoc;
+        var txt =" <inbox>"+
+            "<message>"+
+            "<from>ahmad@example.com</from>"+
+            "<to>fadi@example.com</to>"+
+            "<subject>Hello World!</subject>+"
+            "<body>How are you?</body>"+
+           "</message>"+ 
+           "<message>"+
+            "<from>fadi@example.com</from>"+
+            "<to>ahmad@example.com</to>"+
+            "<subject>Hello World!</subject>+"
+            "<body>I’m fine!</body>"+
+            "</message>"
+            "</inbox>";
+            parser = new DOMParser();
+            xmlDoc = parser.parseFromString(txt,"txt/xml");
+            document.getElementById("demo").innerHTML =
+            xmlDoc.getElementsByTagName("message")[0].childNodes[0].nodeValue;
+    </script>
+</body>
+</html>
